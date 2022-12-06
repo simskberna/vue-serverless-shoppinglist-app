@@ -1,12 +1,19 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
-  </div>
+   <v-app id="app">
+    <NavItem />
+    <router-view />
+  </v-app>
 </template>
+<script>
+import NavItem from "@/components/NavItems.vue";
+import { mapState } from 'vuex';
+export default({
+  components: { NavItem},
+  computed: {
+    ...mapState("auth", ["user"]),
+  },
+})
+</script>
 
 <style lang="scss">
 #app {

@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "newproject",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authnewproject8b6fbaa4",
+      "Outputs.UserPoolId"
+    ]
+  }
+}

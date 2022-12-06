@@ -1,18 +1,21 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <Login v-if="!user"/>
+  <ListView v-else/>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+// Components
 
+import { mapState } from "vuex";
+import ListView from "@/views/ListView.vue"
+import Login from "@/components/Login.vue";
 export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
-  }
-}
+name: "HomeView",
+components: {
+  Login, ListView
+},
+computed: {
+  ...mapState("auth", ["user"]),
+},
+};
 </script>
